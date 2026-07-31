@@ -1,4 +1,4 @@
-import type { SqlDialectStrategy } from '../../../src/lib/sqlDialects/types';
+import type { SqlDialectStrategy } from '@datazen/plugin-sdk';
 
 export const trinoDialect: SqlDialectStrategy = {
   family: 'trino',

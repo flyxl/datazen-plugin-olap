@@ -1,4 +1,4 @@
-import type { DatabaseTypeMeta } from '../../../src/lib/databaseMeta';
+import type { DatabaseTypeMeta } from '@datazen/plugin-sdk';
 
 export const prestoMeta: DatabaseTypeMeta = {
   label: 'Presto',
