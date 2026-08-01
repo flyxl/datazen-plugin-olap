@@ -350,6 +350,25 @@ impl DatabaseDriver for OlapDriver {
         })
     }
 
+    async fn get_server_info(&self, handle: &ConnectionHandle) -> Result<ServerInfo, DriverError> {
+        let sessions = self.sessions.read().await;
+        let s = Self::get_session(&sessions, handle)?;
+        let (_, rows) = Self::run_query(&s.client, "SELECT version()".into()).await?;
+        let version = rows
+            .first()
+            .and_then(|r| r.first())
+            .and_then(|v| v.as_ref())
+            .map(|v| match v {
+                Value::String(s) => s.clone(),
+                other => format!("{other:?}"),
+            })
+            .unwrap_or_else(|| "unknown".into());
+        Ok(ServerInfo {
+            server_version: version,
+            server_type: self.server_label().to_string(),
+        })
+    }
+
     async fn disconnect(&self, handle: ConnectionHandle) -> Result<(), DriverError> {
         self.sessions.write().await.remove(&handle.pool_id);
         Ok(())
