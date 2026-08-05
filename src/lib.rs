@@ -610,6 +610,17 @@ impl DatabaseDriver for OlapDriver {
         })
     }
 
+    async fn use_database(
+        &self,
+        handle: &ConnectionHandle,
+        database: &str,
+    ) -> Result<(), DriverError> {
+        let sessions = self.sessions.read().await;
+        let s = Self::get_session(&sessions, handle)?;
+        Self::set_active_schema(s, database);
+        Ok(())
+    }
+
     async fn cancel_query(&self, _handle: &ConnectionHandle) -> Result<(), DriverError> {
         Ok(())
     }
