@@ -301,6 +301,10 @@ impl DatabaseDriver for OlapDriver {
         true
     }
 
+    fn supports_offset(&self) -> bool {
+        false
+    }
+
     async fn connect(&self, config: &ConnectionConfig) -> Result<ConnectionHandle, DriverError> {
         let client = Self::build_client(config, self.db_type.clone())?;
         let catalog = Self::catalog(config)?;

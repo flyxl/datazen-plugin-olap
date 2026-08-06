@@ -1,0 +1,10 @@
+/Users/flyxl/code/datazen-plugin-olap/target/debug/deps/structmeta_derive-43b0322a65cf3e21.d: /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/lib.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/syn_utils.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/parse.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/struct_meta.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens_attribute.rs
+
+/Users/flyxl/code/datazen-plugin-olap/target/debug/deps/libstructmeta_derive-43b0322a65cf3e21.dylib: /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/lib.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/syn_utils.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/parse.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/struct_meta.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens.rs /Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens_attribute.rs
+
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/lib.rs:
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/syn_utils.rs:
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/parse.rs:
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/struct_meta.rs:
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens.rs:
+/Users/flyxl/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/structmeta-derive-0.3.0/src/to_tokens_attribute.rs:
