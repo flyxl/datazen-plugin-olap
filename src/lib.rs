@@ -36,17 +36,17 @@ pub struct OlapDriver {
 
 impl OlapDriver {
     pub fn new(db_type: DatabaseType) -> Self {
-        assert!(matches!(db_type, DatabaseType::Presto | DatabaseType::Trino));
+        assert!(db_type == "presto" || db_type == "trino");
         Self {
             db_type,
             sessions: RwLock::new(HashMap::new()),
         }
     }
 
-    fn server_label(&self) -> &'static str {
-        match self.db_type {
-            DatabaseType::Presto => "Presto",
-            DatabaseType::Trino => "Trino",
+    fn server_label(&self) -> &str {
+        match self.db_type.as_str() {
+            "presto" => "Presto",
+            "trino" => "Trino",
             _ => "OLAP",
         }
     }
@@ -128,8 +128,8 @@ impl OlapDriver {
             .map(str::trim)
             .filter(|s| !s.is_empty());
 
-        match db_type {
-            DatabaseType::Presto => {
+        match db_type.as_str() {
+            "presto" => {
                 let mut builder = prusto::ClientBuilder::new(&user, &host)
                     .port(port)
                     .secure(secure)
@@ -147,7 +147,7 @@ impl OlapDriver {
                     .map_err(|e| DriverError::ConnectionFailed(e.to_string()))?;
                 Ok(OlapClient::Presto(client))
             }
-            DatabaseType::Trino => {
+            "trino" => {
                 let mut builder = trino_rust_client::ClientBuilder::new(&user, &host)
                     .port(port)
                     .secure(secure)
@@ -634,7 +634,7 @@ struct PrestoDriverFactory;
 
 impl DatabaseDriverFactory for PrestoDriverFactory {
     fn create(&self) -> Arc<dyn DatabaseDriver> {
-        Arc::new(OlapDriver::new(DatabaseType::Presto))
+        Arc::new(OlapDriver::new("presto".to_string()))
     }
 
     fn driver_id(&self) -> &'static str {
@@ -646,7 +646,7 @@ struct TrinoDriverFactory;
 
 impl DatabaseDriverFactory for TrinoDriverFactory {
     fn create(&self) -> Arc<dyn DatabaseDriver> {
-        Arc::new(OlapDriver::new(DatabaseType::Trino))
+        Arc::new(OlapDriver::new("trino".to_string()))
     }
 
     fn driver_id(&self) -> &'static str {
